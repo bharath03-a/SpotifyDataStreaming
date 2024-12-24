@@ -7,4 +7,3 @@ TOKEN_REQUEST_BODY = {
     "client_secret" : "<client_secret>"
 }
 
-
