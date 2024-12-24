@@ -7,5 +7,4 @@ TOKEN_REQUEST_BODY = {
     "client_secret" : "<client_secret>"
 }
 
-CLIENT_ID = "46d7f16926ac4bf4aa0616898def34e8"
-CLIENT_SECRET = "a6320afa973045ae98720f11ef3ef2f4"
+
