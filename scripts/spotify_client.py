@@ -30,10 +30,12 @@ class SpotifyClient():
         auth_code = parse_qs(parsed_url.query).get('code')[0]
         return auth_code
 
-    def get_access_token(self):
+    def get_access_token(self, auth_code):
         try: 
             CNST.TOKEN_REQUEST_BODY['client_id'] = SEC.CLIENT_ID
             CNST.TOKEN_REQUEST_BODY['client_secret'] = SEC.CLIENT_SECRET
+            CNST.TOKEN_REQUEST_BODY['code'] = auth_code
+            CNST.TOKEN_REQUEST_BODY['redirect_uri'] = CNST.REDIRECT_URI
 
             response = requests.request("POST",
                                         url=CNST.TOKEN_URL,
@@ -49,8 +51,7 @@ class SpotifyClient():
     
     def get_top_artists(self):
         try:
-            access_token = self.get_access_token()
-            CNST.API_HEADER['Authorization'] = CNST.API_HEADER['Authorization'].format(access_token = access_token)
+            CNST.API_HEADER['Authorization'] = CNST.API_HEADER['Authorization'].format(access_token = self.access_token)
 
             params = {
                 "time_range": "long_term",
