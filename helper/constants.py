@@ -7,3 +7,10 @@ TOKEN_REQUEST_BODY = {
     "client_secret" : "<client_secret>"
 }
 
+AUTH_URL = "https://accounts.spotify.com/authorize"
+TOKEN_URL = "https://accounts.spotify.com/api/token"
+REDIRECT_URI = "http://localhost:8080"
+
+SPOTIFY_BASE_URL = "https://api.spotify.com/v1/"
+TOP_ITEMS = "me/top/{type}"
+API_HEADER = {"Authorization": "Bearer {access_token}"}
